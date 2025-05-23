@@ -3,6 +3,8 @@
 ## Project setup
 ```
 npm install
+npm install axios
+npm i bootstrap@5.3.6
 ```
 
 ### Compiles and hot-reloads for development
