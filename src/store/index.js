@@ -1,14 +1,27 @@
 import { createStore } from 'vuex'
-
-export default createStore({
-  state: {
+import axios from 'axios';
+const store= createStore({
+  state(){
+    return {
+      contactos:[]
+    }
   },
-  getters: {
+  mutations:{
+    setContactos(state, contactos) {
+       state.contactos = contactos;
+    }
   },
-  mutations: {
+  actions:{
+    async fetchContactos({commit}){
+      const response=await axios.get('http://localhost:8000/api/contactos/')
+      commit('setContactos',response.data)
+    } 
   },
-  actions: {
-  },
-  modules: {
+  getters:{
+    getContactoById: (state) => (id) => {
+      return state.contactos.find(contacto => contacto.id === id);
+    }
   }
+  
 })
+export default store;
