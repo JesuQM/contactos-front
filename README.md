@@ -5,6 +5,7 @@
 npm install
 npm install axios
 npm i bootstrap@5.3.6
+npm i sweetalert2
 ```
 
 ### Compiles and hot-reloads for development
